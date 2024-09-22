@@ -1,0 +1,87 @@
+//
+//  LogCardsView.swift
+//  ProvisionProject
+//
+//  Created by Pelin Üstünel on 22.07.2024.
+//
+
+import SwiftUI
+
+struct LogCardsView: View {
+    
+    var log : LogCard
+    
+    var body: some View {
+        
+        HStack(spacing: 20){
+            
+            //Card tasarlanması
+            RoundedRectangle(cornerRadius:30, style: .continuous)
+                .fill(Color(hex: "5CCAED"))
+                .frame(width: 50, height: 50)
+                .overlay {
+                    Image(systemName: "phone.fill")
+                }
+            VStack(alignment:.leading, spacing: 6) {
+                Text(log.name)
+                    .subText()
+                    .foregroundStyle(.blue)
+                    .lineLimit(1)
+                    .offset(x:-5)
+                    
+                
+                Text(log.name1)
+                    .headerText()
+                    .foregroundStyle(.red)
+                    .lineLimit(1)
+                
+            
+                Text(log.name2)
+                    .subSText()
+                    .foregroundStyle(.black)
+                    .opacity(0.7)
+                    .lineLimit(1)
+                
+                Text(log.name3)
+                    .subSText()
+                    .foregroundStyle(.black)
+                    .opacity(0.7)
+                    .lineLimit(1)
+                
+                Text(log.name4)
+                    .subSText()
+                    .foregroundStyle(.black)
+                    .opacity(0.7)
+                    .lineLimit(1)
+                
+                Text(log.username)
+                    .subSText()
+                    .foregroundColor(.secondary)
+                
+            }
+            
+            // Tarih ve Chevron gösterilmesi
+            HStack{
+                VStack{
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(Color(hex: "5CCAED"))
+                        .padding()
+                        .padding()
+                    
+                    Text(log.date)
+                        .subSText()
+                        .foregroundColor(.secondary)
+                    
+                }
+                
+            }
+            
+            
+        }
+        .padding([.top, .bottom], 8)
+    }
+}
+
+#Preview {
+    LogCardsView(log: logData)
+}
